@@ -581,8 +581,8 @@ def contract(
 
     # If no optimization, run pure einsum
     if optimize is False:
-        backend = parse_backend(operands, backend)
-        return _einsum(*operands_list, backend=backend, out=out, **kwargs)
+        backend_str = parse_backend(operands, backend)
+        return _einsum(*operands_list, backend=backend_str, out=out, **kwargs)
 
     # Grab non-einsum kwargs
     gen_expression = kwargs.pop("_gen_expression", False)
